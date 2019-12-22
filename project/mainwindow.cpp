@@ -17,16 +17,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->serialPortDetect();
 
-    this->serialPort=NULL;
+    this->serialPort=nullptr;
 
     this->setWindowFlags(windowFlags()&~Qt::WindowMaximizeButtonHint);
 
     this->setFixedSize(this->width(),this->height());
-
-//    QIntValidator *tempIntValidator=new QIntValidator();
-//    tempIntValidator->setRange(0,9999);
-//    ui->lineEdit_send_time->setValidator(tempIntValidator);
-//    delete tempIntValidator;
 }
 
 MainWindow::~MainWindow()
@@ -41,7 +36,7 @@ void MainWindow::on_pushButton_open2close_clicked()
 
 void MainWindow::on_pushButton_send_clicked()
 {
-    if(this->serialPort!=NULL)
+    if(this->serialPort!=nullptr)
     {
         this->serialPortSend();
     }
@@ -49,7 +44,7 @@ void MainWindow::on_pushButton_send_clicked()
 
 void MainWindow::serialPortOpen()
 {
-    if(this->serialPort==NULL)
+    if(this->serialPort==nullptr)
     {
         this->serialPort = new QSerialPort(this);
 
@@ -99,9 +94,8 @@ void MainWindow::serialPortOpen()
 
         if(!serialPort->open( QIODevice::ReadWrite ))
         {
-            //ui->textEdit->append("open faild");
             delete serialPort;
-            this->serialPort=NULL;
+            this->serialPort=nullptr;
             ui->pushButton_open2close->setText("Open");
         }
         else
@@ -114,7 +108,7 @@ void MainWindow::serialPortOpen()
     {
         serialPort->close();
         delete serialPort;
-        serialPort=NULL;
+        serialPort=nullptr;
         ui->pushButton_open2close->setText("Open");
     }
 
@@ -129,11 +123,9 @@ void MainWindow::serialPortDetect()
     for(int i=0;i<serialPortList.size();i++)
     {
         tempSerial.setPort(serialPortList.at(i));
-        //if(tempSerial.open(QIODevice::ReadWrite))
-        //{
-           ui->comboBox_serialName->addItem(serialPortList.at(i).portName());
-           tempSerial.close();
-        //}
+        ui->comboBox_serialName->addItem(serialPortList.at(i).portName());
+        tempSerial.close();
+
     }
     this->detectFlag=0;
 }
@@ -169,10 +161,8 @@ void MainWindow::serialPortReceive()
 
     if(!temp.isEmpty())
     {
-        //QString tempStr(temp);
         ui->textEdit_receive->moveCursor(QTextCursor::End);
         ui->textEdit_receive->insertPlainText(tempStr);
-        //ui->textEdit_receive->append(tempStr);
     }
     this->receiveNumber+=temp.size();
     ui->label_receive_number->setText(QString::number(this->receiveNumber));
@@ -261,14 +251,13 @@ void MainWindow::on_comboBox_parity_currentIndexChanged(int index)
     }
 }
 
-void MainWindow::on_comboBox_serialName_currentIndexChanged(const QString &arg1)
+void MainWindow::on_comboBox_serialName_currentIndexChanged(const QString &)
 {
     if(this->serialPort&&!this->detectFlag)
     {
         this->serialPort->close();
         delete serialPort;
-        this->serialPort=NULL;
-        //this->serialPort->setPortName(arg1);
+        this->serialPort=nullptr;
         this->serialPortOpen();
     }
 }
@@ -301,3 +290,4 @@ void MainWindow::on_pushButton_detect_serial_clicked()
 {
     this->serialPortDetect();
 }
+

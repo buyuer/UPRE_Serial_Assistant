@@ -182,7 +182,7 @@
        </property>
       </widget>
      </item>
-     <item row="9" column="1">
+     <item row="10" column="1">
       <widget class="QPushButton" name="pushButton_clearRec">
        <property name="text">
         <string>Clear</string>
@@ -193,7 +193,12 @@
       <widget class="QComboBox" name="comboBox_baud">
        <item>
         <property name="text">
-         <string>115200</string>
+         <string>4800</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>9600</string>
         </property>
        </item>
        <item>
@@ -203,25 +208,70 @@
        </item>
        <item>
         <property name="text">
-         <string>9600</string>
+         <string>38400</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>57600</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>115200</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>230400</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>460800</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>576000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>921600</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1000000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1152000</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1500000</string>
         </property>
        </item>
       </widget>
      </item>
-     <item row="11" column="1">
-      <widget class="QPushButton" name="pushButton_detect_serial">
-       <property name="text">
-        <string>Detect</string>
-       </property>
-      </widget>
-     </item>
-     <item row="12" column="1">
+     <item row="13" column="1">
       <widget class="QCheckBox" name="checkBox_hex_show">
        <property name="text">
         <string>Hex Show</string>
        </property>
        <property name="tristate">
         <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QPushButton" name="pushButton_detect_serial">
+       <property name="text">
+        <string>Detect</string>
        </property>
       </widget>
      </item>
