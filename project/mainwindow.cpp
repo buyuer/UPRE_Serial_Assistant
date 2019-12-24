@@ -29,74 +29,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_open2close_clicked()
-{
-    this->serialPortOpen();
-}
-
-void MainWindow::on_pushButton_send_clicked()
-{
-    if(this->serialPort!=nullptr)
-    {
-        this->serialPortSend();
-    }
-}
-
-void MainWindow::serialPortOpen()
+void MainWindow::serialPortOpen2Close()
 {
     if(this->serialPort==nullptr)
     {
         this->serialPort = new QSerialPort(this);
 
         this->serialPort->setPortName(ui->comboBox_serialName->currentText());
-        this->serialPort->setBaudRate(ui->comboBox_baud->currentText().toInt());
-        switch(ui->comboBox_dataBits->currentText().toInt())
-        {
-        case 8:
-            this->serialPort->setDataBits(QSerialPort::Data8);break;
-        case 7:
-            this->serialPort->setDataBits(QSerialPort::Data7);break;
-        case 6:
-            this->serialPort->setDataBits(QSerialPort::Data6);break;
-        case 5:
-            this->serialPort->setDataBits(QSerialPort::Data5);break;
-        default:
-            break;
-        }
-        switch(ui->comboBox_parity->currentIndex())
-        {
-        case 0:
-            this->serialPort->setParity(QSerialPort::NoParity);
-            break;
-        case 1:
-            this->serialPort->setParity(QSerialPort::OddParity);
-            break;
-        case 2:
-            this->serialPort->setParity(QSerialPort::EvenParity);
-            break;
-        default:
-            break;
-        }
-        switch (ui->comboBox_stopBits->currentIndex())
-        {
-        case 0:
-            this->serialPort->setStopBits(QSerialPort::OneStop);
-            break;
-        case 1:
-            this->serialPort->setStopBits(QSerialPort::OneAndHalfStop);
-            break;
-        case 2:
-            this->serialPort->setStopBits(QSerialPort::TwoStop);
-            break;
-        default:
-            break;
-        }
+
+        this->setSerialPortBaud();
+        this->setSerialDataBits();
+        this->setSerialParity();
+        this->setSerialStopBits();
 
         if(!serialPort->open( QIODevice::ReadWrite ))
         {
             delete serialPort;
             this->serialPort=nullptr;
             ui->pushButton_open2close->setText("Open");
+            QMessageBox::information(this,"error","open failed");
         }
         else
         {
@@ -141,7 +92,6 @@ void MainWindow::serialPortSend()
     {
         this->sendNumber +=
                 this->serialPort->write(QByteArray::fromHex( ui->textEdit_send->toPlainText().toLocal8Bit() ));
-        //QByteArray::fromHex( ui->textEdit_send->toPlainText().toLocal8Bit() ).size();
     }
     if(ui->checkBox_send_newline->isChecked()){
         this->sendNumber += this->serialPort->write("\r\n", 2);
@@ -172,6 +122,83 @@ void MainWindow::serialPortReceive()
     ui->label_receive_number->setText(QString::number(this->receiveNumber));
     temp.clear();
     tempStr.clear();
+}
+
+void MainWindow::setSerialPortBaud(){
+    if(this->serialPort != nullptr){
+        this->serialPort->setBaudRate(ui->comboBox_baud->currentText().toInt());
+    }
+}
+
+void MainWindow::setSerialDataBits(){
+    if(this->serialPort != nullptr){
+        switch(ui->comboBox_dataBits->currentText().toInt())
+        {
+        case 8:
+            this->serialPort->setDataBits(QSerialPort::Data8);break;
+        case 7:
+            this->serialPort->setDataBits(QSerialPort::Data7);break;
+        case 6:
+            this->serialPort->setDataBits(QSerialPort::Data6);break;
+        case 5:
+            this->serialPort->setDataBits(QSerialPort::Data5);break;
+        default:
+            break;
+        }
+    }
+}
+
+void MainWindow::setSerialParity(){
+    if(this->serialPort != nullptr){
+        switch(ui->comboBox_parity->currentIndex())
+        {
+        case 0:
+            this->serialPort->setParity(QSerialPort::NoParity);
+            break;
+        case 1:
+            this->serialPort->setParity(QSerialPort::OddParity);
+            break;
+        case 2:
+            this->serialPort->setParity(QSerialPort::EvenParity);
+            break;
+        default:
+            break;
+        }
+    }
+}
+
+void MainWindow::setSerialStopBits(){
+    if(this->serialPort != nullptr){
+        switch (ui->comboBox_stopBits->currentIndex())
+        {
+        case 0:
+            this->serialPort->setStopBits(QSerialPort::OneStop);
+            break;
+        case 1:
+            this->serialPort->setStopBits(QSerialPort::OneAndHalfStop);
+            break;
+        case 2:
+            this->serialPort->setStopBits(QSerialPort::TwoStop);
+            break;
+        default:
+            break;
+        }
+    }
+}
+
+//
+
+void MainWindow::on_pushButton_open2close_clicked()
+{
+    this->serialPortOpen2Close();
+}
+
+void MainWindow::on_pushButton_send_clicked()
+{
+    if(this->serialPort!=nullptr)
+    {
+        this->serialPortSend();
+    }
 }
 
 void MainWindow::on_pushButton_clearRec_clicked()
@@ -262,7 +289,7 @@ void MainWindow::on_comboBox_serialName_currentIndexChanged(const QString &)
         this->serialPort->close();
         delete serialPort;
         this->serialPort=nullptr;
-        this->serialPortOpen();
+        this->serialPortOpen2Close();
     }
 }
 
@@ -295,3 +322,31 @@ void MainWindow::on_pushButton_detect_serial_clicked()
     this->serialPortDetect();
 }
 
+void MainWindow::on_comboBox_baud_activated(const QString &)
+{
+    this->setSerialPortBaud();
+}
+
+void MainWindow::on_comboBox_dataBits_activated(const QString &)
+{
+    this->setSerialDataBits();
+}
+
+void MainWindow::on_comboBox_stopBits_activated(const QString &)
+{
+    this->setSerialStopBits();
+}
+
+void MainWindow::on_comboBox_parity_activated(const QString &)
+{
+    this->setSerialParity();
+}
+
+void MainWindow::on_comboBox_serialName_activated(const QString &)
+{
+    this->serialPortDetect();
+    if(this->serialPort != nullptr){
+        this->serialPortOpen2Close();
+        this->serialPortOpen2Close();
+    }
+}

@@ -5,7 +5,8 @@
 #include <QTimer>
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
-
+#include <QDebug>
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;
@@ -44,6 +45,16 @@ private slots:
 
     void on_pushButton_detect_serial_clicked();
 
+    void on_comboBox_baud_activated(const QString &arg1);
+
+    void on_comboBox_dataBits_activated(const QString &arg1);
+
+    void on_comboBox_stopBits_activated(const QString &arg1);
+
+    void on_comboBox_parity_activated(const QString &arg1);
+
+    void on_comboBox_serialName_activated(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     QSerialPort* serialPort;
@@ -54,11 +65,15 @@ private:
     qint64 sendNumber=0;
     qint64 receiveNumber=0;
 
-    void serialPortOpen();
+    void serialPortOpen2Close();
     void serialPortDetect();
     void serialPortSend();
     void serialPortReceive();
 
+    void setSerialPortBaud();
+    void setSerialDataBits();
+    void setSerialParity();
+    void setSerialStopBits();
 };
 
 #endif // MAINWINDOW_H
