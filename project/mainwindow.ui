@@ -23,6 +23,9 @@
    <double>5.000000000000000</double>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <widget class="QTextEdit" name="textEdit_send">
     <property name="geometry">
      <rect>
@@ -452,6 +455,19 @@
     </property>
     <property name="text">
      <string>V0.1</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_send_newline">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>460</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>发送新行</string>
     </property>
    </widget>
   </widget>

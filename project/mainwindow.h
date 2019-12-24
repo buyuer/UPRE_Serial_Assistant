@@ -16,7 +16,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
@@ -51,8 +51,8 @@ private:
 
     bool detectFlag=0;
 
-    int sendNumber=0;
-    int receiveNumber=0;
+    qint64 sendNumber=0;
+    qint64 receiveNumber=0;
 
     void serialPortOpen();
     void serialPortDetect();

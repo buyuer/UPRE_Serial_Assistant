@@ -139,8 +139,12 @@ void MainWindow::serialPortSend()
     }
     else
     {
-        this->serialPort->write(QByteArray::fromHex( ui->textEdit_send->toPlainText().toLocal8Bit() ));
-        this->sendNumber+=QByteArray::fromHex( ui->textEdit_send->toPlainText().toLocal8Bit() ).size();
+        this->sendNumber +=
+                this->serialPort->write(QByteArray::fromHex( ui->textEdit_send->toPlainText().toLocal8Bit() ));
+        //QByteArray::fromHex( ui->textEdit_send->toPlainText().toLocal8Bit() ).size();
+    }
+    if(ui->checkBox_send_newline->isChecked()){
+        this->sendNumber += this->serialPort->write("\r\n", 2);
     }
 
     ui->label_send_number->setText(QString::number(this->sendNumber));
