@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>865</width>
-    <height>481</height>
+    <width>870</width>
+    <height>566</height>
    </rect>
   </property>
   <property name="font">
@@ -26,450 +26,409 @@
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <widget class="QTextEdit" name="textEdit_send">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>310</y>
-      <width>721</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>310</y>
-      <width>111</width>
-      <height>65</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
-     <item>
-      <widget class="QPushButton" name="pushButton_clearSend">
-       <property name="text">
-        <string>Clear</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_send">
-       <property name="text">
-        <string>Send</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="formLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>177</width>
-      <height>294</height>
-     </rect>
-    </property>
-    <layout class="QFormLayout" name="formLayout">
-     <item row="1" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>串口：</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QComboBox" name="comboBox_serialName"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>波特率：</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>数据位：</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>停止位：</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>奇偶校验：</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
-      <widget class="QComboBox" name="comboBox_stopBits">
-       <item>
+   <layout class="QGridLayout" name="gridLayout" rowstretch="10,5,1" columnstretch="1,8">
+    <item row="0" column="0">
+     <layout class="QFormLayout" name="formLayout">
+      <property name="horizontalSpacing">
+       <number>6</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>6</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label">
         <property name="text">
-         <string>1</string>
+         <string>串口：</string>
         </property>
-       </item>
-       <item>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>1.5</string>
+         <string>波特率：</string>
         </property>
-       </item>
-       <item>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>2</string>
+         <string>数据位：</string>
         </property>
-       </item>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <widget class="QComboBox" name="comboBox_parity">
-       <item>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>无</string>
+         <string>停止位：</string>
         </property>
-       </item>
-       <item>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>奇校验</string>
+         <string>奇偶校验：</string>
         </property>
-       </item>
-       <item>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="comboBox_serialName"/>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="comboBox_baud">
+        <item>
+         <property name="text">
+          <string>4800</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>9600</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>19200</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>38400</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>57600</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>115200</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>230400</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>460800</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>576000</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>921600</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1000000</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1152000</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1500000</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="comboBox_dataBits">
+        <item>
+         <property name="text">
+          <string>8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>5</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QComboBox" name="comboBox_stopBits">
+        <item>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>1.5</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QComboBox" name="comboBox_parity">
+        <item>
+         <property name="text">
+          <string>无</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>奇校验</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>偶校验</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QPushButton" name="pushButton_open2close">
         <property name="text">
-         <string>偶校验</string>
+         <string>Open</string>
         </property>
-       </item>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QComboBox" name="comboBox_dataBits">
-       <item>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QPushButton" name="pushButton_detect_serial">
         <property name="text">
-         <string>8</string>
+         <string>Detect</string>
         </property>
-       </item>
-       <item>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QPushButton" name="pushButton_clearRec">
         <property name="text">
-         <string>7</string>
+         <string>Clear</string>
         </property>
-       </item>
-       <item>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QCheckBox" name="checkBox_hex_show">
         <property name="text">
-         <string>6</string>
+         <string>Hex Show</string>
         </property>
-       </item>
-       <item>
+        <property name="tristate">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>5</string>
+         <string>接收区</string>
         </property>
-       </item>
-      </widget>
-     </item>
-     <item row="8" column="1">
-      <widget class="QPushButton" name="pushButton_open2close">
-       <property name="text">
-        <string>Open</string>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="1">
-      <widget class="QPushButton" name="pushButton_clearRec">
-       <property name="text">
-        <string>Clear</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QComboBox" name="comboBox_baud">
-       <item>
-        <property name="text">
-         <string>4800</string>
+        <property name="textFormat">
+         <enum>Qt::AutoText</enum>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>9600</string>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>19200</string>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="textEdit_receive"/>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="9,0">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="sizeConstraint">
+       <enum>QLayout::SetFixedSize</enum>
+      </property>
+      <item>
+       <widget class="QTextEdit" name="textEdit_send">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>38400</string>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0,0">
+        <property name="spacing">
+         <number>0</number>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>57600</string>
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>115200</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>230400</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>460800</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>576000</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>921600</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1000000</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1152000</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>1500000</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="13" column="1">
-      <widget class="QCheckBox" name="checkBox_hex_show">
-       <property name="text">
-        <string>Hex Show</string>
-       </property>
-       <property name="tristate">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="1">
-      <widget class="QPushButton" name="pushButton_detect_serial">
-       <property name="text">
-        <string>Detect</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_receive">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>20</y>
-      <width>651</width>
-      <height>281</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>0</y>
-      <width>173</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>                接收区</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_hex_send">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>460</y>
-      <width>91</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Hex Send</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_clear_log">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>460</y>
-      <width>98</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Clear Log</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>650</x>
-      <y>460</y>
-      <width>71</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Receive:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_send_number">
-    <property name="geometry">
-     <rect>
-      <x>810</x>
-      <y>460</y>
-      <width>51</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>0</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>460</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Send:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_receive_number">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>460</y>
-      <width>51</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>0</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_timer_send">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>460</y>
-      <width>71</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>定时发送</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_send_time">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>460</y>
-      <width>51</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>0</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>460</y>
-      <width>21</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ms</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>740</x>
-      <y>380</y>
-      <width>101</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>28</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>UPRE</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_11">
-    <property name="geometry">
-     <rect>
-      <x>820</x>
-      <y>430</y>
-      <width>31</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>V0.1</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_send_newline">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>460</y>
-      <width>81</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>发送新行</string>
-    </property>
-   </widget>
+        <item>
+         <widget class="QPushButton" name="pushButton_clearSend">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Clear</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_send">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Send</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_10">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>28</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>UPRE</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QCheckBox" name="checkBox_hex_send">
+          <property name="text">
+           <string>Hex Send</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_timer_send">
+          <property name="text">
+           <string>定时发送</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_send_time">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>ms</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_send_newline">
+          <property name="text">
+           <string>发送新行</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QPushButton" name="pushButton_clear_log">
+            <property name="text">
+             <string>Clear Log</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Receive:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_receive_number">
+            <property name="text">
+             <string>0</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Send:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_send_number">
+            <property name="text">
+             <string>0</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

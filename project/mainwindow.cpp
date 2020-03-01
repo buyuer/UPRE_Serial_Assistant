@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->setWindowFlags(windowFlags()&~Qt::WindowMaximizeButtonHint);
 
-    this->setFixedSize(this->width(),this->height());
+    //this->setFixedSize(this->width(),this->height());
 }
 
 MainWindow::~MainWindow()
